@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Card.module.scss';
 
-function Card({ title, price, imageUrl, onFavorite, onPlus }) {
+function Card({ title, price, imageUrl, onFavorite, onPlus, items = [] }) {
   const [isAdded, setIsAdded] = useState(false);
 
   const onClickPlus = () => {
-    onPlus({ title, price, imageUrl });
+    onPlus({ title, price, imageUrl, isAdded });
     setIsAdded(!isAdded);
   };
+
+  useEffect(() => {
+    if (items.find((item) => item.title === title)) {
+      setIsAdded(true);
+    } else {
+      setIsAdded(false);
+    }
+  }, [items]);
 
   return (
     <div className={styles.card}>
