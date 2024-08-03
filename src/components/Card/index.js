@@ -1,26 +1,36 @@
 import { useState, useEffect } from 'react';
 import styles from './Card.module.scss';
 
-function Card({ title, price, imageUrl, onFavorite, onPlus, items = [] }) {
+function Card({
+  id,
+  title,
+  price,
+  imageUrl,
+  onFavorite,
+  onPlus,
+  items = [],
+  favoriteItems = [],
+  favorited = false,
+}) {
   const [isAdded, setIsAdded] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(favorited);
 
   const onClickPlus = () => {
-    onPlus({ title, price, imageUrl, isAdded });
     setIsAdded(!isAdded);
+    onPlus({ id, title, price, imageUrl });
   };
 
-  useEffect(() => {
-    if (items.find((item) => item.title === title)) {
-      setIsAdded(true);
-    } else {
-      setIsAdded(false);
-    }
-  }, [items]);
+  const onClickFavorite = () => {
+    setIsFavorite(!isFavorite);
+    onFavorite({ id, title, imageUrl, price });
+  };
 
   return (
     <div className={styles.card}>
-      <div className={styles.favorite} onClick={onFavorite}>
-        <img src="/img/heart-unliked.svg" alt="Unliked"></img>
+      <div className={styles.favorite} onClick={onClickFavorite}>
+        <img
+          src={isFavorite ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'}
+          alt="Unliked"></img>
       </div>
       <img width={133} height={112} src={imageUrl} alt=""></img>
       <h5>{title}</h5>
