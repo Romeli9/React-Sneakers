@@ -1,16 +1,18 @@
-import { useState, useContext } from 'react';
-import AppContext from '../context';
-import Info from './Info';
+import { useState } from 'react';
 import axios from 'axios';
+import Info from '../Info';
+import { useCart } from '../../hooks/useCart';
+
+import styles from './Dradew.module.scss';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function Drawer({ onClose, onRemove, items = [] }) {
+function Drawer({ onClose, onRemove, items = [], oppened }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { cartItems, setCartItems } = useContext(AppContext);
+  const { cartItems, setCartItems, totalPrice } = useCart();
 
   const onClickOrder = async () => {
     try {
@@ -22,6 +24,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
       setOrderId(data.id);
       setIsOrderComplete(true);
       setCartItems([]);
+
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
         await axios.delete(`https://66ac938af009b9d5c7329c5b.mockapi.io/cart/${item.id}`, []);
@@ -34,15 +37,15 @@ function Drawer({ onClose, onRemove, items = [] }) {
   };
 
   return (
-    <div className="overlay">
-      <div className="drawer">
+    <div className={`${styles.overlay} ${oppened ? styles.overlayVisible : ''}`}>
+      <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30 ">
           Корзина <img onClick={onClose} className="cu-p" src="/img/btn-remove.svg" alt="Remove" />
         </h2>
 
         {items.length > 0 ? (
           <>
-            <div className="items">
+            <div className="items flex">
               {items.map((obj, ix) => (
                 <div key={ix} className="cartItem d-flex align-center mb-20">
                   <div
@@ -68,12 +71,12 @@ function Drawer({ onClose, onRemove, items = [] }) {
                 <li>
                   <span>Итого:</span>
                   <div></div>
-                  <b>21 498 руб. </b>
+                  <b>{totalPrice} руб. </b>
                 </li>
                 <li>
                   <span>Налог 5%</span>
                   <div></div>
-                  <b>1074 руб.</b>
+                  <b>{(totalPrice / 100) * 5} руб.</b>
                 </li>
               </ul>
               <button

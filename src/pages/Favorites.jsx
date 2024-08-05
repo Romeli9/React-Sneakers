@@ -3,7 +3,7 @@ import Card from '../components/Card';
 import AppContext from '../context';
 
 function Favorites() {
-  const { favoritesItems, onAddToFavorites } = useContext(AppContext);
+  const { favoritesItems, onAddToFavorite, onAddToCart } = useContext(AppContext);
 
   console.log(favoritesItems);
 
@@ -14,7 +14,13 @@ function Favorites() {
       </div>
       <div className="d-flex flex-wrap">
         {favoritesItems.map((item, ix) => (
-          <Card key={ix} favorited={true} onFavorite={onAddToFavorites} {...item} />
+          <Card
+            key={ix}
+            favorited={true}
+            onFavorite={(obj) => onAddToFavorite(obj)}
+            onPlus={(obj) => onAddToCart(obj)}
+            {...item}
+          />
         ))}
       </div>
     </div>
