@@ -76,7 +76,7 @@ function Drawer({ onClose, onRemove, items = [], oppened }) {
                 <li>
                   <span>Налог 5%</span>
                   <div></div>
-                  <b>{(totalPrice / 100) * 5} руб.</b>
+                  <b>{Math.Round((totalPrice / 100) * 5)} руб.</b>
                 </li>
               </ul>
               <button
