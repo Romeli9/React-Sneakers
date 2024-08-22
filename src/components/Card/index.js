@@ -1,9 +1,14 @@
 import { useContext } from 'react';
 import AppContext from '../../context';
 import ContentLoader from 'react-content-loader';
-import styles from './Card.module.scss';
 
-function Card({ id, title, price, imageUrl, onFavorite, onPlus, loading = false }) {
+import styles from './Card.module.scss';
+import btnchecked from '../../assets/btn-checked.svg';
+import btnplus from '../../assets/btn-plus.svg';
+import heartliked from '../../assets/heart-liked.svg';
+import heartunliked from '../../assets/heart-unliked.svg';
+
+const Card = ({ id, title, price, imageUrl, onFavorite, onPlus, loading = false }) => {
   const { isItemAdded, isItemFavorite } = useContext(AppContext);
 
   const obj = { id, parentId: id, title, price, imageUrl };
@@ -36,9 +41,11 @@ function Card({ id, title, price, imageUrl, onFavorite, onPlus, loading = false 
         <>
           {onFavorite && (
             <div className={styles.favorite} onClick={onClickFavorite}>
-              <img
-                src={isItemFavorite(id) ? 'img/heart-liked.svg' : 'img/heart-unliked.svg'}
-                alt="Unliked"></img>
+              {isItemFavorite(id) ? (
+                <img src={heartliked} alt="Unliked" />
+              ) : (
+                <img src={heartunliked} alt="Unliked" />
+              )}
             </div>
           )}
           <img width="100%" height={135} src={imageUrl} alt=""></img>
@@ -48,19 +55,17 @@ function Card({ id, title, price, imageUrl, onFavorite, onPlus, loading = false 
               <span>Цена: </span>
               <b>{price} руб.</b>
             </div>
-            {onPlus && (
-              <img
-                className={styles.plus}
-                onClick={onClickPlus}
-                src={isItemAdded(id) ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
-                alt="Checked"
-              />
-            )}
+            {onPlus &&
+              (isItemAdded(id) ? (
+                <img className={styles.plus} onClick={onClickPlus} src={btnchecked} alt="Checked" />
+              ) : (
+                <img className={styles.plus} onClick={onClickPlus} src={btnplus} alt="Plus" />
+              ))}
           </div>
         </>
       )}
     </div>
   );
-}
+};
 
 export default Card;

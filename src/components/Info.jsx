@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import AppContext from '../context';
 
+import arrow from '../assets/arrow.svg';
+
 const Info = ({ title, image, description }) => {
   const { setCartOppened } = useContext(AppContext);
   return (
@@ -9,7 +11,7 @@ const Info = ({ title, image, description }) => {
       <h2>{title}</h2>
       <p className="opacity-6">{description}</p>
       <button onClick={() => setCartOppened(false)} className="greenButton">
-        <img src="img/arrow.svg" alt="Arrow" />
+        <img src={arrow} alt="Arrow" />
         Вернуться назад
       </button>
     </div>

@@ -1,5 +1,8 @@
 import Card from '../components/Card';
 
+import btnremove from '../assets/btn-remove.svg';
+import search from '../assets/search.svg';
+
 function Home({
   items,
   searchValue,
@@ -28,12 +31,12 @@ function Home({
       <div className="d-flex align-center justify-between mb-40">
         <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
         <div className="search-block d-flex">
-          <img src="img/search.svg" alt="Search" />
+          <img src={search} alt="Search" />
           {searchValue && (
             <img
               onClick={() => setSearchValue('')}
               className="clear cu-p"
-              src="img/btn-remove.svg"
+              src={btnremove}
               alt="Clear"
             />
           )}
