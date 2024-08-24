@@ -1,13 +1,25 @@
 {
   "files": {
-    "main.css": "/React-Sneakers/static/css/main.b3ce38c2.css",
-    "main.js": "/React-Sneakers/static/js/main.f6f71a89.js",
+    "main.css": "/React-Sneakers/static/css/main.3000e999.css",
+    "main.js": "/React-Sneakers/static/js/main.de2604e3.js",
+    "static/media/empty-cart.jpg": "/React-Sneakers/static/media/empty-cart.7d4fd6e1f677fc265204.jpg",
+    "static/media/complete-order.jpg": "/React-Sneakers/static/media/complete-order.0d1b5f4cea29695a86c3.jpg",
+    "static/media/btn-checked.svg": "/React-Sneakers/static/media/btn-checked.890c21e6e092e231b04d7f8d3b23767a.svg",
+    "static/media/heart.svg": "/React-Sneakers/static/media/heart.00f6d50c380dcddfbaf513a4ed36b933.svg",
+    "static/media/user.svg": "/React-Sneakers/static/media/user.ac388acc92554d86818d2bc9ac664117.svg",
+    "static/media/heart-liked.svg": "/React-Sneakers/static/media/heart-liked.9b9476985ff38b5fb1aaac6ddcc9946d.svg",
+    "static/media/cart.svg": "/React-Sneakers/static/media/cart.5113b08fb682dc25f3856ef704a6c05d.svg",
     "index.html": "/React-Sneakers/index.html",
-    "main.b3ce38c2.css.map": "/React-Sneakers/static/css/main.b3ce38c2.css.map",
-    "main.f6f71a89.js.map": "/React-Sneakers/static/js/main.f6f71a89.js.map"
+    "static/media/heart-unliked.svg": "/React-Sneakers/static/media/heart-unliked.d393617871e6c2f73f7ff382c10743ff.svg",
+    "static/media/search.svg": "/React-Sneakers/static/media/search.48c52bf5d459537e27c07f88eb08c050.svg",
+    "static/media/btn-remove.svg": "/React-Sneakers/static/media/btn-remove.b1fef0aa93fbf25374f4991d23f900d8.svg",
+    "static/media/btn-plus.svg": "/React-Sneakers/static/media/btn-plus.b88e94c67ea7ac0cfa69033241c96b8c.svg",
+    "static/media/arrow.svg": "/React-Sneakers/static/media/arrow.fc3222511ec5a224a4abf3bbf4c2566f.svg",
+    "main.3000e999.css.map": "/React-Sneakers/static/css/main.3000e999.css.map",
+    "main.de2604e3.js.map": "/React-Sneakers/static/js/main.de2604e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3ce38c2.css",
-    "static/js/main.f6f71a89.js"
+    "static/css/main.3000e999.css",
+    "static/js/main.de2604e3.js"
   ]
 }
