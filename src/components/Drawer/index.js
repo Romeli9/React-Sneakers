@@ -3,7 +3,7 @@ import axios from 'axios';
 import Info from '../Info';
 import { useCart } from '../../hooks/useCart';
 
-import styles from './Dradew.module.scss';
+import './Dradew.scss';
 import btnremove from '../../assets/btn-remove.svg';
 import arrow from '../../assets/arrow.svg';
 import completeorder from '../../assets/complete-order.jpg';
@@ -17,6 +17,8 @@ function Drawer({ onClose, onRemove, items = [], oppened }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const { cartItems, setCartItems, totalPrice } = useCart();
+
+  console.log(oppened);
 
   useEffect(() => {
     if (oppened) {
@@ -49,8 +51,8 @@ function Drawer({ onClose, onRemove, items = [], oppened }) {
   };
 
   return (
-    <div className={`${styles.overlay} ${oppened ? styles.overlayVisible : ''}`}>
-      <div className={styles.drawer}>
+    <div className={`overlay ${oppened ? 'overlayVisible' : ''}`}>
+      <div className="drawer">
         <h2 className="d-flex justify-between mb-30 ">
           Корзина <img onClick={onClose} className="cu-p" src={btnremove} alt="Remove" />
         </h2>

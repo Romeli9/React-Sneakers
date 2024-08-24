@@ -71,7 +71,8 @@ header {
 
 .cartTotalBlock {
   ul {
-    margin-bottom: 30px !important;
+    display: block;
+    margin-bottom: 40px !important;
 
     li {
       display: flex;
@@ -80,7 +81,7 @@ header {
 
       div {
         flex: 1;
-        height: 1;
+        height: 1px;
         border-bottom: 1px dashed #dfdfdf;
         position: relative;
         top: -4px;

@@ -28,12 +28,12 @@ function Header(props) {
         </li>
 
         <li className="mr-20 cu-p">
-          <Link to="React-Sneakers/favorites">
+          <Link to="/React-Sneakers/favorites">
             <img width={18} height={18} src={heart} alt="Закладки" />
           </Link>
         </li>
         <li className="cu-p">
-          <Link to="React-Sneakers/orders">
+          <Link to="/React-Sneakers/orders">
             <img width={20} height={20} src={user} alt="Пользователь" />
           </Link>
         </li>
